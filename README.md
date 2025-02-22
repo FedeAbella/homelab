@@ -8,5 +8,7 @@ through `npm`.
 
 ## Containers
 
-- [cloudflare-ddns](https://github.com/timothymiller/cloudflare-ddns)
-- [Nginx Proxy Manager](https://nginxproxymanager.com/)
+- [cloudflare-ddns](https://github.com/timothymiller/cloudflare-ddns): Update
+  Cloudflare proxy DDNS with dynamic local IP
+- [Nginx Proxy Manager](https://nginxproxymanager.com/): Handle requests to
+  personal domain and subdomains via reverse proxy
