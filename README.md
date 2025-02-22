@@ -12,3 +12,4 @@ through `npm`.
   Cloudflare proxy DDNS with dynamic local IP
 - [Nginx Proxy Manager](https://nginxproxymanager.com/): Handle requests to
   personal domain and subdomains via reverse proxy
+- [Homarr](https://homarr.dev/): Homelab dashboard
