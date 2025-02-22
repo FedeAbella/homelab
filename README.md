@@ -2,9 +2,8 @@
 
 Containers and config for them in use in my personal homelab.
 
-Containers are run using `podman` and `podman-compose`. `nginx-proxy-manager`
-custom network is used to facilitate `ufw` rules to access other containers only
-through `npm`.
+Containers are run using `docker compose`. `nginx-proxy-manager` custom network
+is used to facilitate `ufw` rules to access other containers only through `npm`.
 
 ## Containers
 
