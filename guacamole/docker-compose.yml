@@ -1,0 +1,53 @@
+name: apache-guacamole
+
+services:
+  guacamole:
+    image: docker.io/guacamole/guacamole
+    container_name: guacamole
+    restart: always
+    environment:
+      POSTGRESQL_DATABASE: guacamole_db
+      POSTGRESQL_HOSTNAME: postgres
+      POSTGRESQL_PASSWORD: "${POSTGRES_PASSWORD}"
+      POSTGRESQL_USER: "${POSTGRES_USER}"
+      POSTGRESQL_AUTO_CREATE_ACCOUNTS: true
+      TOTP_ENABLED: TRUE
+      REMOTE_IP_VALVE_ENABLED: true
+      GUACD_HOSTNAME: guacd
+      PROXY_ALLOWED_IPS_REGEX: "172.*"
+    env_file: .env
+    links:
+      - guacd
+    networks:
+      - guacnetwork
+    ports:
+      - "8080:8080"
+
+  guacd:
+    image: docker.io/guacamole/guacd
+    container_name: guac_daemon
+    restart: always
+    networks:
+      - guacnetwork
+    volumes:
+      - ./FiraCodeNerdFontMono-Regular.ttf:/usr/share/fonts/truetype/firacode/FiraCodeNerdFontMono-Regular.ttf
+
+  postgres:
+    image: docker.io/postgres:latest
+    container_name: guac_db
+    restart: always
+    env_file: .env
+    environment:
+      PGDATA: /var/lib/postgresql/data/guacamole
+      POSTGRES_DB: guacamole_db
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+      POSTGRES_USER: "${POSTGRES_USER}"
+    networks:
+      - guacnetwork
+    volumes:
+      - ./db/db_data:/var/lib/postgresql/data:rw
+      - ./init:/docker-entrypoint-initdb.d:ro
+
+networks:
+  guacnetwork:
+    driver: bridge
