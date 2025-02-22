@@ -4,9 +4,9 @@ services:
     image: docker.io/jc21/nginx-proxy-manager:latest
     restart: always
     ports:
-      - "40080:80"
-      - "40443:443"
-      - "40081:81"
+      - 40080:80
+      - 40443:443
+      - 40081:81
 
     volumes:
       - ./data:/data
