@@ -7,12 +7,19 @@ is used to facilitate `ufw` rules to access other containers only through `npm`.
 
 ## Containers
 
+### Connection
+
+- [Nginx Proxy Manager](https://nginxproxymanager.com/): Reverse Proxy
 - [cloudflare-ddns](https://github.com/timothymiller/cloudflare-ddns): Update
   Cloudflare proxy DDNS with dynamic local IP
-- [Nginx Proxy Manager](https://nginxproxymanager.com/): Handle requests to
-  personal domain and subdomains via reverse proxy
-- [portainer.io](https://www.portainer.io/): Manage installed containers
-- [gotify](https://gotify.net/): Notifications server
-- [Homarr](https://homarr.dev/): Homelab dashboard
-- [Apache Guacamole](https://guacamole.apache.org/): Provide remote access to
-  the server
+- [Apache Guacamole](https://guacamole.apache.org/): Remote access
+
+### Monitor
+
+- [portainer.io](https://www.portainer.io/): Container Manager
+- [gotify](https://gotify.net/): Notifications
+- [Homarr](https://homarr.dev/): Dashboard
+
+### Media
+
+- [Prowlarr](https://prowlarr.com/): Indexer Manager
