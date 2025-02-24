@@ -12,6 +12,7 @@ is used to facilitate `ufw` rules to access other containers only through `npm`.
 - [Nginx Proxy Manager](https://nginxproxymanager.com/): Handle requests to
   personal domain and subdomains via reverse proxy
 - [portainer.io](https://www.portainer.io/): Manage installed containers
+- [gotify](https://gotify.net/): Notifications server
 - [Homarr](https://homarr.dev/): Homelab dashboard
 - [Apache Guacamole](https://guacamole.apache.org/): Provide remote access to
   the server
