@@ -12,6 +12,8 @@ services:
     ports:
       - 9696:9696
     restart: always
+    networks:
+      - media
 
   radarr:
     image: ghcr.io/hotio/radarr
@@ -27,7 +29,31 @@ services:
     ports:
       - 7878:7878
     restart: always
+    networks:
+      - gotify
+      - media
+
+  sonarr:
+    image: ghcr.io/hotio/sonarr
+    container_name: sonarr
+    environment:
+      - PUID=114
+      - PGID=1003
+      - TZ=America/Montevideo
+      - UMASK=007
+    volumes:
+      - /var/lib/sonarr:/config
+      - /mnt/ext1:/data
+    ports:
+      - 8989:8989
+    restart: always
+    networks:
+      - gotify
+      - media
 
 networks:
+  gotify:
+    name: notifications
+    external: true
   media:
     driver: bridge

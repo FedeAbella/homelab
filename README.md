@@ -24,3 +24,4 @@ is used to facilitate `ufw` rules to access other containers only through `npm`.
 
 - [Prowlarr](https://prowlarr.com/): Indexer Manager
 - [Radarr](https://radarr.video/): Movie Manager
+- [Sonarr](https://sonarr.tv/): TV Series Manager
