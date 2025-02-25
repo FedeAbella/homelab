@@ -1,0 +1,33 @@
+services:
+  prowlarr:
+    image: ghcr.io/hotio/prowlarr
+    container_name: prowlarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Montevideo
+      - UMASK=002
+    volumes:
+      - /var/lib/prowlarr:/config
+    ports:
+      - 9696:9696
+    restart: always
+
+  radarr:
+    image: ghcr.io/hotio/radarr
+    container_name: radarr
+    environment:
+      - PUID=994
+      - PGID=1003
+      - TZ=America/Montevideo
+      - UMASK=007
+    volumes:
+      - /var/lib/radarr:/config
+      - /mnt/ext1:/data
+    ports:
+      - 7878:7878
+    restart: always
+
+networks:
+  media:
+    driver: bridge
