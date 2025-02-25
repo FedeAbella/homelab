@@ -51,6 +51,25 @@ services:
       - gotify
       - media
 
+  deluge:
+    image: lscr.io/linuxserver/deluge:latest
+    container_name: deluge
+    environment:
+      - PUID=112
+      - PGID=1003
+      - TZ=America/Montevideo
+    volumes:
+      - /var/lib/deluge/.config/deluge:/config
+      - /mnt/ext1:/data
+    ports:
+      - 8112:8112
+      - 55666:55666
+      - 55666:55666/udp
+      - 58846:58846 #optional
+    restart: always
+    networks:
+      - media
+
 networks:
   gotify:
     name: notifications
