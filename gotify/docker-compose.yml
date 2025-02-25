@@ -9,3 +9,9 @@ services:
     volumes:
       - "./gotify_data:/app/data"
     restart: always
+    networks:
+      - gotify
+
+networks:
+  gotify:
+    name: notifications
