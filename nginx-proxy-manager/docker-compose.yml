@@ -14,13 +14,14 @@ services:
       - ./98-themepark-npm:/etc/cont-init.d/99-themepark
 
     networks:
-      - nginx
+      - proxy
 
     environment:
       - TP_THEME=nord
 
 networks:
-  nginx:
+  proxy:
+    name: internal
     ipam:
       driver: default
       config:
