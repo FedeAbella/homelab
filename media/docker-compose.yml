@@ -14,8 +14,9 @@ services:
   prowlarr:
     image: ghcr.io/hotio/prowlarr
     container_name: prowlarr
-    user: 995:1003
     environment:
+      - PUID=995
+      - PGID=1003
       - TZ=America/Montevideo
       - UMASK=002
     networks:
@@ -29,10 +30,11 @@ services:
   radarr:
     image: ghcr.io/hotio/radarr
     container_name: radarr
-    user: 994:1003
     environment:
+      - PUID=994
+      - PGID=1003
       - TZ=America/Montevideo
-      - UMASK=007
+      - UMASK=002
     networks:
       - gotify
       - media
@@ -46,10 +48,11 @@ services:
   sonarr:
     image: ghcr.io/hotio/sonarr
     container_name: sonarr
-    user: 114:1003
     environment:
+      - PUID=114
+      - GUID=1003
       - TZ=America/Montevideo
-      - UMASK=007
+      - UMASK=002
     networks:
       - gotify
       - media
@@ -63,10 +66,11 @@ services:
   deluge:
     image: lscr.io/linuxserver/deluge:latest
     container_name: deluge
-    user: 112:1003
     environment:
+      - PUID=112
+      - PGID=1003
       - TZ=America/Montevideo
-      - UMASK=007
+      - UMASK=002
     networks:
       - media
     ports:
