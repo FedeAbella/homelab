@@ -4,7 +4,7 @@ services:
   guacamole:
     image: docker.io/guacamole/guacamole
     container_name: guacamole
-    restart: always
+    env_file: .env
     environment:
       POSTGRESQL_DATABASE: guacamole_db
       POSTGRESQL_HOSTNAME: postgres
@@ -15,27 +15,26 @@ services:
       REMOTE_IP_VALVE_ENABLED: true
       GUACD_HOSTNAME: guacd
       PROXY_ALLOWED_IPS_REGEX: "172.*"
-    env_file: .env
-    links:
-      - guacd
     networks:
       - guacnetwork
     ports:
       - 8080:8080
+    links:
+      - guacd
+    restart: always
 
   guacd:
     image: docker.io/guacamole/guacd
     container_name: guac_daemon
-    restart: always
     networks:
       - guacnetwork
     volumes:
       - ./FiraCodeNerdFontMono-Regular.ttf:/usr/share/fonts/truetype/firacode/FiraCodeNerdFontMono-Regular.ttf
+    restart: always
 
   postgres:
     image: docker.io/postgres:latest
     container_name: guac_db
-    restart: always
     env_file: .env
     environment:
       PGDATA: /var/lib/postgresql/data/guacamole
@@ -47,6 +46,7 @@ services:
     volumes:
       - ./db/db_data:/var/lib/postgresql/data:rw
       - ./init:/docker-entrypoint-initdb.d:ro
+    restart: always
 
 networks:
   guacnetwork:

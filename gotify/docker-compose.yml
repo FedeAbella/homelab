@@ -2,15 +2,15 @@ services:
   gotify:
     container_name: gotify
     image: gotify/server
-    ports:
-      - 8055:80
     environment:
       GOTIFY_DEFAULTUSER_PASS: "admin"
+    networks:
+      - gotify
+    ports:
+      - 8055:80
     volumes:
       - "./gotify_data:/app/data"
     restart: always
-    networks:
-      - gotify
 
 networks:
   gotify:

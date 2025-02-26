@@ -2,12 +2,12 @@ services:
   homarr:
     container_name: homarr
     image: ghcr.io/homarr-labs/homarr:latest
-    restart: always
-    volumes:
-      - /var/run/podman/podman.sock:/var/run/docker.sock
-      - ./appdata:/appdata
     env_file: .env
     environment:
       SECRET_ENCRYPTION_KEY: "${HOMARR_KEY}"
     ports:
       - 7575:7575
+    volumes:
+      - /var/run/podman/podman.sock:/var/run/docker.sock
+      - ./appdata:/appdata
+    restart: always
