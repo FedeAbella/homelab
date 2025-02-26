@@ -14,72 +14,69 @@ services:
   prowlarr:
     image: ghcr.io/hotio/prowlarr
     container_name: prowlarr
+    user: 995:1003
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=America/Montevideo
       - UMASK=002
-    volumes:
-      - /var/lib/prowlarr:/config
-    ports:
-      - 9696:9696
-    restart: always
     networks:
       - media
+    ports:
+      - 9696:9696
+    volumes:
+      - /opt/prowlarr:/config
+    restart: always
 
   radarr:
     image: ghcr.io/hotio/radarr
     container_name: radarr
+    user: 994:1003
     environment:
-      - PUID=994
-      - PGID=1003
       - TZ=America/Montevideo
       - UMASK=007
-    volumes:
-      - /var/lib/radarr:/config
-      - /mnt/ext1:/data
-    ports:
-      - 7878:7878
-    restart: always
     networks:
       - gotify
       - media
+    ports:
+      - 7878:7878
+    volumes:
+      - /opt/radarr:/config
+      - /mnt/ext1:/data
+    restart: always
 
   sonarr:
     image: ghcr.io/hotio/sonarr
     container_name: sonarr
+    user: 114:1003
     environment:
-      - PUID=114
-      - PGID=1003
       - TZ=America/Montevideo
       - UMASK=007
-    volumes:
-      - /var/lib/sonarr:/config
-      - /mnt/ext1:/data
-    ports:
-      - 8989:8989
-    restart: always
     networks:
       - gotify
       - media
+    ports:
+      - 8989:8989
+    volumes:
+      - /opt/sonarr:/config
+      - /mnt/ext1:/data
+    restart: always
 
   deluge:
     image: lscr.io/linuxserver/deluge:latest
     container_name: deluge
+    user: 112:1003
     environment:
-      - PUID=112
-      - PGID=1003
       - TZ=America/Montevideo
-    volumes:
-      - /var/lib/deluge/.config/deluge:/config
-      - /mnt/ext1:/data
+      - UMASK=007
+    networks:
+      - media
     ports:
       - 8112:8112
       - 55666:55666
       - 55666:55666/udp
+    volumes:
+      - /opt/deluge:/config
+      - /mnt/ext1:/data
     restart: always
-    networks:
-      - media
 
 networks:
   gotify:
