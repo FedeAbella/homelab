@@ -26,3 +26,4 @@ is used to facilitate `ufw` rules to access other containers only through `npm`.
 - [Radarr](https://radarr.video/): Movie Manager
 - [Sonarr](https://sonarr.tv/): TV Series Manager
 - [Deluge](https://deluge-torrent.org/): Bittorrent Client
+- [Jellyfin](https://jellyfin.org): Media Manager and Player
