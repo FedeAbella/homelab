@@ -65,7 +65,6 @@ services:
       - 8112:8112
       - 55666:55666
       - 55666:55666/udp
-      - 58846:58846 #optional
     restart: always
     networks:
       - media
