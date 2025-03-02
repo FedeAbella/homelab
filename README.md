@@ -10,7 +10,7 @@ is used to facilitate `ufw` rules to access other containers only through `npm`.
 ### Connection
 
 - [Nginx Proxy Manager](https://nginxproxymanager.com/): Reverse Proxy
-- [cloudflare-ddns](https://github.com/timothymiller/cloudflare-ddns): Update
+- [cloudflare-ddns](https://github.com/FedeAbella/cloudflare-ddns): Update
   Cloudflare proxy DDNS with dynamic local IP
 - [Apache Guacamole](https://guacamole.apache.org/): Remote access
 

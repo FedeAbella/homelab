@@ -1,17 +1,11 @@
-name: cloudflare-ddns
-
 services:
-  cloudflare-ddns:
-    image: docker.io/timothyjmiller/cloudflare-ddns:latest
+  app:
+    image: fedeabella/cloudflare-ddns
     container_name: cloudflare-ddns
-    security_opt:
-      - no-new-privileges:true
     env_file: .env
     environment:
-      PUID: 1000
-      PGID: 1000
-      CF_DDNS_API_TOKEN: "${CF_DDNS_API_TOKEN}"
-      CF_DDNS_ZONE_ID: "${CF_DDNS_ZONE_ID}"
-    volumes:
-      - ./config.json:/config.json
+      - TZ=America/Montevideo
+    read_only: true
     restart: always
+    volumes:
+      - ./domains.json:/app/domains.json
