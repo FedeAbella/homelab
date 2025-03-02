@@ -2,7 +2,7 @@ services:
   jellyfin:
     image: jellyfin/jellyfin
     container_name: jellyfin
-    user: 111:1003
+    user: 1000:1000
     ports:
       - 8096:8096
     volumes:
@@ -15,8 +15,8 @@ services:
     image: ghcr.io/hotio/prowlarr
     container_name: prowlarr
     environment:
-      - PUID=995
-      - PGID=1003
+      - PUID=1000
+      - PGID=1000
       - TZ=America/Montevideo
       - UMASK=002
     networks:
@@ -31,8 +31,8 @@ services:
     image: ghcr.io/hotio/radarr
     container_name: radarr
     environment:
-      - PUID=994
-      - PGID=1003
+      - PUID=1000
+      - PGID=1000
       - TZ=America/Montevideo
       - UMASK=002
     networks:
@@ -49,8 +49,8 @@ services:
     image: ghcr.io/hotio/sonarr
     container_name: sonarr
     environment:
-      - PUID=114
-      - GUID=1003
+      - PUID=1000
+      - PGID=1000
       - TZ=America/Montevideo
       - UMASK=002
     networks:
@@ -67,8 +67,8 @@ services:
     image: lscr.io/linuxserver/deluge:latest
     container_name: deluge
     environment:
-      - PUID=112
-      - PGID=1003
+      - PUID=1000
+      - PGID=1000
       - TZ=America/Montevideo
       - UMASK=002
     networks:
