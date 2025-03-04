@@ -1,0 +1,35 @@
+# For Linux:
+# sudo docker run \
+# --init \
+# --sig-proxy=false \
+# --name nextcloud-aio-mastercontainer \
+# --restart always \
+# --publish 8080:8080 \
+# --env APACHE_PORT=11000 \
+# --env APACHE_IP_BINDING=0.0.0.0 \
+# --env APACHE_ADDITIONAL_NETWORK="" \
+# --env SKIP_DOMAIN_VALIDATION=false \
+# --volume nextcloud_aio_mastercontainer:/mnt/docker-aio-config \
+# --volume /var/run/docker.sock:/var/run/docker.sock:ro \
+# nextcloud/all-in-one:latest
+
+services:
+  nextcloud:
+    image: nextcloud/all-in-one:latest
+    container_name: nextcloud-aio-mastercontainer
+    init: true
+    environment:
+      - APACHE_PORT=11000
+      - APACHE_IP_BINDING=192.168.68.51
+      # - APACHE_ADDITIONAL_NETWORK=true
+      - SKIP_DOMAIN_VALIDATION=false
+      - NEXTCLOUD_DATADIR=/mnt/nextcloud
+    ports:
+      - 9999:8080
+    volumes:
+      - nextcloud_aio_mastercontainer:/mnt/docker-aio-config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+volumes:
+  nextcloud_aio_mastercontainer:
+    name: nextcloud_aio_mastercontainer
