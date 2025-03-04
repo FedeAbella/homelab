@@ -4,4 +4,4 @@ nginx-proxy-manager/letsencrypt
 homarr/appdata
 guacamole/db
 gotify/gotify_data
-cloudflare-ddns/domains.json
+cloudflare-ddns/config/domains.json
