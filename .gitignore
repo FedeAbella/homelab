@@ -1,7 +1,7 @@
-*/.env
+*/**/.env
 nginx-proxy-manager/data
 nginx-proxy-manager/letsencrypt
 homarr/appdata
 guacamole/db
 gotify/gotify_data
-cloudflare-ddns/config/domains.json
+cloudflare-ddns/*/config/domains.json
