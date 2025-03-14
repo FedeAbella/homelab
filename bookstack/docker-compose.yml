@@ -1,0 +1,36 @@
+services:
+  bookstack:
+    image: lscr.io/linuxserver/bookstack:latest
+    container_name: bookstack
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Montevideo
+      - APP_URL=${APP_URL}
+      - APP_KEY=base64:${APP_KEY}
+      - DB_HOST=mariadb
+      - DB_PORT=3306
+      - DB_DATABASE=bookstack
+      - DB_USERNAME=${MARIA_USERNAME}
+      - DB_PASSWORD=${MARIA_PASSWORD}
+    volumes:
+      - /mnt/ext2/bookstack/config:/config
+    ports:
+      - 6875:80
+    restart: always
+
+  mariadb:
+    image: lscr.io/linuxserver/mariadb:latest
+    container_name: mariadb
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Montevideo
+      - MYSQL_ROOT_PASSWORD=${MARIA_ROOTPASS}
+      - MYSQL_DATABASE=bookstack
+      - MYSQL_USER=${MARIA_USERNAME}
+      - MYSQL_PASSWORD=${MARIA_PASSWORD}
+    volumes:
+      - /mnt/ext2/bookstack/bookstack_db_data:/config
+
+    restart: always
