@@ -12,6 +12,8 @@ services:
       - DB_DATABASE=bookstack
       - DB_USERNAME=${MARIA_USERNAME}
       - DB_PASSWORD=${MARIA_PASSWORD}
+    networks:
+      - mail
     volumes:
       - /mnt/ext2/bookstack/config:/config
     ports:
@@ -29,7 +31,14 @@ services:
       - MYSQL_DATABASE=bookstack
       - MYSQL_USER=${MARIA_USERNAME}
       - MYSQL_PASSWORD=${MARIA_PASSWORD}
+    networks:
+      - mail
     volumes:
       - /mnt/ext2/bookstack/bookstack_db_data:/config
 
     restart: always
+
+networks:
+  mail:
+    external: true
+    name: mail

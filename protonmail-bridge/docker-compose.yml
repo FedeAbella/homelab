@@ -1,0 +1,25 @@
+services:
+  protonmail-bridge:
+    image: ghcr.io/videocurio/proton-mail-bridge:latest
+    container_name: protonmail_bridge
+    volumes:
+      - mail_data:/root
+    environment:
+      - CONTAINER_SMTP_PORT=25
+    networks:
+      mail:
+        ipv4_address: 172.0.5.0
+    restart: always
+
+networks:
+  mail:
+    name: mail
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.0.0.0/16
+          ip_range: 172.0.5.0/24
+          gateway: 172.0.5.254
+
+volumes:
+  mail_data:
