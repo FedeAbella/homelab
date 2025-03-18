@@ -9,6 +9,8 @@ services:
     networks:
       mail:
         ipv4_address: 172.0.5.0
+      nextcloud-aio:
+        ipv4_address: 172.25.5.10
     restart: always
 
 networks:
@@ -20,6 +22,9 @@ networks:
         - subnet: 172.0.0.0/16
           ip_range: 172.0.5.0/24
           gateway: 172.0.5.254
+  nextcloud-aio:
+    name: nextcloud-aio
+    external: true
 
 volumes:
   mail_data:
