@@ -5,3 +5,4 @@ homarr/appdata
 guacamole/db
 gotify/gotify_data
 cloudflare-ddns/*/config/domains.json
+captain/static
