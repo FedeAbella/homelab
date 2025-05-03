@@ -13,7 +13,8 @@ services:
       - DB_USERNAME=${MARIA_USERNAME}
       - DB_PASSWORD=${MARIA_PASSWORD}
     networks:
-      - mail
+      mail:
+        ipv4_address: 172.0.5.1
     volumes:
       - /mnt/ext2/bookstack/config:/config
     ports:
@@ -32,7 +33,8 @@ services:
       - MYSQL_USER=${MARIA_USERNAME}
       - MYSQL_PASSWORD=${MARIA_PASSWORD}
     networks:
-      - mail
+      mail:
+        ipv4_address: 172.0.5.2
     volumes:
       - /mnt/ext2/bookstack/bookstack_db_data:/config
 
