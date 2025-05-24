@@ -36,4 +36,5 @@ is used to facilitate `ufw` rules to access other containers only through `npm`.
 
 ### Misc
 
-- [BookStack](https://bookstackapp.com): Collaborative document manager
+- [BookStack](https://bookstackapp.com): Collaborative note-taking
+- [Paperless](https://docs.paperless-ngx.com/): Document management
