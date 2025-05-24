@@ -63,24 +63,6 @@ services:
       - /mnt/ext1:/data
     restart: always
 
-  # readarr:
-  #   image: ghcr.io/hotio/readarr
-  #   container_name: readarr
-  #   environment:
-  #     - PUID=1000
-  #     - PGID=1000
-  #     - TZ=America/Montevideo
-  #     - UMASK=002
-  #   networks:
-  #     - gotify
-  #     - media
-  #   ports:
-  #     - 8787:8787
-  #   volumes:
-  #     - /opt/readarr:/config
-  #     - /mnt/ext1:/data
-  #   restart: always
-
   deluge:
     image: lscr.io/linuxserver/deluge:latest
     container_name: deluge
