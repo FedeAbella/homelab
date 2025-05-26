@@ -10,8 +10,7 @@ is used to facilitate `ufw` rules to access other containers only through `npm`.
 ### Connection
 
 - [Nginx Proxy Manager](https://nginxproxymanager.com/): Reverse Proxy
-- [cloudflare-ddns](https://github.com/FedeAbella/cloudflare-ddns): Update
-  Cloudflare proxy DDNS with dynamic local IP
+- [cloudflare-ddns](https://github.com/FedeAbella/cloudflare-ddns): Update Cloudflare DDNS
 - [Apache Guacamole](https://guacamole.apache.org/): Remote access
 - [ProtonMailBridgeDocker](https://github.com/VideoCurio/ProtonMailBridgeDocker):
   Send emails via ProtonMail custom domains
@@ -20,7 +19,7 @@ is used to facilitate `ufw` rules to access other containers only through `npm`.
 
 - [portainer.io](https://www.portainer.io/): Container Manager
 - [gotify](https://gotify.net/): Notifications
-- [Homarr](https://homarr.dev/): Dashboard
+- [Watchtower](https://containrrr.dev/watchtower/): Container updater
 
 ### Media
 
@@ -36,5 +35,6 @@ is used to facilitate `ufw` rules to access other containers only through `npm`.
 
 ### Misc
 
+- [Homarr](https://homarr.dev/): Dashboard
 - [BookStack](https://bookstackapp.com): Collaborative note-taking
 - [Paperless](https://docs.paperless-ngx.com/): Document management
