@@ -1,8 +1,9 @@
 */**/*.env
+calibre/config
+captain/static
+cloudflare-ddns/*/config/domains.json
+gotify/gotify_data
+guacamole/db
+homarr/appdata
 nginx-proxy-manager/data
 nginx-proxy-manager/letsencrypt
-homarr/appdata
-guacamole/db
-gotify/gotify_data
-cloudflare-ddns/*/config/domains.json
-captain/static

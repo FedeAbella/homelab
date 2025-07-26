@@ -28,6 +28,7 @@ is used to facilitate `ufw` rules to access other containers only through `npm`.
 - [Sonarr](https://sonarr.tv/): TV Series Manager
 - [Deluge](https://deluge-torrent.org/): Bittorrent Client
 - [Jellyfin](https://jellyfin.org): Media Manager and Player
+- [Calibre Web](https://github.com/janeczku/calibre-web): Ebook Management
 
 ### Storage
 
