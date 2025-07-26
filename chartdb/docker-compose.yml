@@ -1,0 +1,8 @@
+services:
+  app:
+    image: ghcr.io/chartdb/chartdb:latest
+    container_name: chartdb
+    environment:
+      DISABLE_ANALYTICS: true
+    ports:
+      - 9191:80

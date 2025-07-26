@@ -42,3 +42,4 @@ is used to facilitate `ufw` rules to access other containers only through `npm`.
 ### Dev Tools
 
 - [Webhook Tester](https://github.com/tarampampam/webhook-tester): HTTP Testing
+- [ChartDB](https://github.com/chartdb/chartdb): DB Diagram Editor
