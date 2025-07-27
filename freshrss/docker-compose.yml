@@ -1,0 +1,20 @@
+services:
+  freshrss:
+    image: freshrss/freshrss:latest
+    container_name: freshrss
+    restart: always
+    logging:
+      options:
+        max-size: 10m
+    volumes:
+      - data:/var/www/FreshRSS/data
+      - extensions:/var/www/FreshRSS/extensions
+    ports:
+      - 9393:80
+    environment:
+      TZ: America/Montevideo
+      CRON_MIN: "2,32"
+
+volumes:
+  data:
+  extensions:
