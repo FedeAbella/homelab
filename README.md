@@ -2,8 +2,15 @@
 
 Containers and config for them in use in my personal homelab.
 
-Containers are run using `docker compose`. `nginx-proxy-manager` custom network
-is used to facilitate `ufw` rules to access other containers only through `npm`.
+Containers are run using `docker compose`. Docker networks are needed for
+containers to be able to talk to one another:
+
+- `proxy`: Used for `nginx` to serve as reverse proxy
+- `nextcloud-aio`: Used to route and send emails from the Nextcloud managed
+  container
+- `mail`: Used for apps that need access to ProtonMail
+
+All networks need to be created first using `docker network create <network>`
 
 ## Containers
 
@@ -12,7 +19,7 @@ is used to facilitate `ufw` rules to access other containers only through `npm`.
 - [Nginx Proxy Manager](https://nginxproxymanager.com/): Reverse Proxy
 - [cloudflare-ddns](https://github.com/FedeAbella/cloudflare-ddns): Update Cloudflare DDNS
 - [Apache Guacamole](https://guacamole.apache.org/): Remote access
-- [ProtonMailBridgeDocker](https://github.com/VideoCurio/ProtonMailBridgeDocker):
+- [ProtonMail Bridge](https://github.com/VideoCurio/ProtonMailBridgeDocker):
   Send emails via ProtonMail custom domains
 
 ### Monitor
