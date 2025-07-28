@@ -3,9 +3,10 @@ services:
     container_name: nginx-proxy-manager
     image: docker.io/jc21/nginx-proxy-manager:latest
     environment:
-      - TP_THEME=nord
+      TP_THEME: nord
     networks:
       - proxy
+      - nextcloud-aio
     ports:
       - 40080:80
       - 40443:443
@@ -18,10 +19,6 @@ services:
 
 networks:
   proxy:
-    name: internal
-    ipam:
-      driver: default
-      config:
-        - subnet: 172.28.0.0/16
-          ip_range: 172.28.5.0/24
-          gateway: 172.28.5.254
+    external: true
+  nextcloud-aio:
+    external: true

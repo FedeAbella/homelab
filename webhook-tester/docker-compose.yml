@@ -1,7 +1,11 @@
 services:
-  app:
+  webhook-tester:
     image: ghcr.io/tarampampam/webhook-tester:2
     container_name: webhook-tester
-    ports:
-      - 8181:8080/tcp
+    networks:
+      - proxy
     read_only: true
+
+networks:
+  proxy:
+    external: true

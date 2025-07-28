@@ -1,22 +1,27 @@
 services:
-  write:
+  captain-write:
     image: fedeabella/captain-write
     container_name: captain_write
     environment:
-      - TZ=America/Montevideo
+      TZ: America/Montevideo
     restart: always
     volumes:
       - type: bind
         source: ./static
         target: /app/out
-  serve:
+
+  captain-serve:
     image: fedeabella/captain-serve
     container_name: captain_serve
     restart: always
-    ports:
-      - 8888:8000
+    networks:
+      - proxy
     volumes:
       - type: bind
         source: ./static
         target: /app/static
         read_only: true
+
+networks:
+  proxy:
+    external: true

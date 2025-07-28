@@ -6,9 +6,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     env_file: .env
     environment:
-      - TZ=America/Montevideo
-      - WATCHTOWER_CLEANUP=true
-      - WATCHTOWER_DISABLE_CONTAINERS=captain_write,captain_serve
-      - WATCHTOWER_SCHEDULE=0 0 3 * * *
-      - WATCHTOWER_NOTIFICATIONS=gotify
+      TZ: America/Montevideo
+      WATCHTOWER_CLEANUP: true
+      WATCHTOWER_DISABLE_CONTAINERS: captain_write,captain_serve
+      WATCHTOWER_SCHEDULE: 0 0 3 * * *
+      WATCHTOWER_NOTIFICATIONS: gotify
     restart: always

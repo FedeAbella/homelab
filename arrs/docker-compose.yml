@@ -1,0 +1,48 @@
+services:
+  prowlarr:
+    image: ghcr.io/hotio/prowlarr
+    container_name: prowlarr
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: America/Montevideo
+      UMASK: 002
+    networks:
+      - proxy
+    volumes:
+      - /opt/prowlarr:/config
+    restart: always
+
+  radarr:
+    image: ghcr.io/hotio/radarr
+    container_name: radarr
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: America/Montevideo
+      UMASK: 002
+    networks:
+      - proxy
+    volumes:
+      - /opt/radarr:/config
+      - /mnt/ext1:/data
+    restart: always
+
+  sonarr:
+    image: ghcr.io/hotio/sonarr
+    container_name: sonarr
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: America/Montevideo
+      UMASK: 002
+    networks:
+      - proxy
+    volumes:
+      - /opt/sonarr:/config
+      - /mnt/ext1:/data
+    restart: always
+
+networks:
+  proxy:
+    external: true

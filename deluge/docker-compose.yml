@@ -1,0 +1,22 @@
+services:
+  deluge:
+    image: lscr.io/linuxserver/deluge:latest
+    container_name: deluge
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: America/Montevideo
+      UMASK: 002
+    networks:
+      - proxy
+    ports:
+      - 55666:55666
+      - 55666:55666/udp
+    volumes:
+      - /opt/deluge:/config
+      - /mnt/ext1:/data
+    restart: always
+
+networks:
+  proxy:
+    external: true

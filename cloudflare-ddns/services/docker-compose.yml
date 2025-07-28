@@ -1,10 +1,10 @@
 services:
-  app:
+  cloudflare-ddns:
     image: fedeabella/cloudflare-ddns
     container_name: cloudflare-ddns
     env_file: .env
     environment:
-      - TZ=America/Montevideo
+      TZ: America/Montevideo
     read_only: true
     restart: always
     volumes:

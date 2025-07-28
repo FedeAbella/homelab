@@ -6,15 +6,15 @@ services:
     environment:
       SECRET_ENCRYPTION_KEY: "${HOMARR_KEY}"
     networks:
-      - internal
-    ports:
-      - 7575:7575
+      - proxy
+      - nextcloud-aio
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./appdata:/appdata
     restart: always
 
 networks:
-  internal:
-    name: internal
+  proxy:
+    external: true
+  nextcloud-aio:
     external: true

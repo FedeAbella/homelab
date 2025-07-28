@@ -4,43 +4,43 @@ services:
     container_name: bookstack
     env_file: .env
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/Montevideo
-      - DB_HOST=mariadb
-      - DB_PORT=3306
-      - DB_DATABASE=bookstack
-      - DB_USERNAME=${MARIA_USERNAME}
-      - DB_PASSWORD=${MARIA_PASSWORD}
+      PUID: 1000
+      PGID: 1000
+      TZ: America/Montevideo
+      DB_HOST: bookstack-mariadb
+      DB_PORT: 3306
+      DB_DATABASE: bookstack
+      DB_USERNAME: "${MARIA_USERNAME}"
+      DB_PASSWORD: "${MARIA_PASSWORD}"
     networks:
-      mail:
-        ipv4_address: 172.0.5.1
+      - proxy
+      - bookstack-internal
+      - mail
     volumes:
       - /mnt/ext2/bookstack/config:/config
-    ports:
-      - 6875:80
     restart: always
 
-  mariadb:
+  bookstack-mariadb:
     image: lscr.io/linuxserver/mariadb:latest
-    container_name: mariadb
+    container_name: bookstack-mariadb
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/Montevideo
-      - MYSQL_ROOT_PASSWORD=${MARIA_ROOTPASS}
-      - MYSQL_DATABASE=bookstack
-      - MYSQL_USER=${MARIA_USERNAME}
-      - MYSQL_PASSWORD=${MARIA_PASSWORD}
+      PUID: 1000
+      PGID: 1000
+      TZ: America/Montevideo
+      MYSQL_ROOT_PASSWORD: "${MARIA_ROOTPASS}"
+      MYSQL_DATABASE: bookstack
+      MYSQL_USER: "${MARIA_USERNAME}"
+      MYSQL_PASSWORD: "${MARIA_PASSWORD}"
     networks:
-      mail:
-        ipv4_address: 172.0.5.2
+      bookstack-internal:
     volumes:
       - /mnt/ext2/bookstack/bookstack_db_data:/config
 
     restart: always
 
 networks:
+  bookstack-internal:
+  proxy:
+    external: true
   mail:
     external: true
-    name: mail

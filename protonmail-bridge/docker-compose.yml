@@ -5,25 +5,16 @@ services:
     volumes:
       - mail_data:/root
     environment:
-      - CONTAINER_SMTP_PORT=25
+      CONTAINER_SMTP_PORT: 25
     networks:
-      mail:
-        ipv4_address: 172.0.5.0
-      nextcloud-aio:
-        ipv4_address: 172.25.5.10
+      - mail
+      - nextcloud-aio
     restart: always
 
 networks:
   mail:
-    name: mail
-    ipam:
-      driver: default
-      config:
-        - subnet: 172.0.0.0/16
-          ip_range: 172.0.5.0/24
-          gateway: 172.0.5.254
+    external: true
   nextcloud-aio:
-    name: nextcloud-aio
     external: true
 
 volumes:
