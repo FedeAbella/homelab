@@ -52,3 +52,4 @@ All networks need to be created first using `docker network create <network>`
 
 - [Webhook Tester](https://github.com/tarampampam/webhook-tester): HTTP Testing
 - [ChartDB](https://github.com/chartdb/chartdb): DB Diagram Editor
+- [Planka](https://planka.app): Project tracking
