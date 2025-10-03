@@ -43,6 +43,21 @@ services:
       - /mnt/ext1:/data
     restart: always
 
+  lidarr:
+    image: ghcr.io/hotio/lidarr
+    container_name: lidarr
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: America/Montevideo
+      UMASK: 002
+    networks:
+      - proxy
+    volumes:
+      - /opt/lidarr:/config
+      - /mnt/ext1:/data
+    restart: always
+
 networks:
   proxy:
     external: true
